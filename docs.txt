@@ -1,0 +1,14 @@
+Link: https://docs.nestjs.com/
+NestJs
+    Framework chạy trên nền Nodejs
+    TypeScript: OOP kết hợp lập trình hàm
+    Chứa 
+        expressjs(framework xây dựng trên nền nodej phổ biến nhất phía server)
+        fastify(framework có hiệu suất cao nhất về số lần gửi request/giây)
+    Liên lạc với client: angular (react, vue)
+    Mã nguồn mở
+
+Install: 
+    npm i -g @nestjs/cli
+    nest new project-name
+
