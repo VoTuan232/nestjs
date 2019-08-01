@@ -64,3 +64,4 @@ Demo project
     // Validation
         npm i class-transformer class-validator --save
     Sửa tại nhánh master lần 2
+    Sửa tại nhánh test lần 2
