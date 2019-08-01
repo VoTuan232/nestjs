@@ -17,7 +17,7 @@ Install:
         cd project
         npm install
         npm run start
-
+ 
 Description: 
     Controller: xử lí yêu cầu và phản hồi tới client
     Provider: nhiều lớp cơ bản có thể là provider: services, repositories, factories, helpers,...
@@ -44,6 +44,7 @@ Description:
 Command: 
     nest g mo ten+module: create module
     nest g controller ten+controller: create controller
+    nest g service idea
 
 Demo project
     //env
@@ -54,8 +55,11 @@ Demo project
         npm i --save @nestjs/typeorm typeorm
     // database:
         psql -U postgres
+        create database ideas; : tạo database
         \c ideas : connect database ideas
         \q : quit
         \d tenbang: xem thông tin bảng
         \dt: list relationship
         drop table + tenbang: xóa bảng
+    // Validation
+        npm i class-transformer class-validator --save
