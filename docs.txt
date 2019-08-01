@@ -63,3 +63,4 @@ Demo project
         drop table + tenbang: xóa bảng
     // Validation
         npm i class-transformer class-validator --save
+    Sửa tại master
