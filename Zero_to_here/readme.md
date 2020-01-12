@@ -31,3 +31,7 @@ Auth:
   + JWT token
   + Ownership task user
   + Pass hashing, store pass
+
+Deploy:
+  + Deploy Netjs To AWS
+  + Deploy front end to Amazon S3
