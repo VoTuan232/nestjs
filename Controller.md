@@ -47,3 +47,5 @@ We have a connection pool to the database, singleton services with global state,
 
 * Request payload
 DTO: shoud use classes
+
+* Handling Errors
