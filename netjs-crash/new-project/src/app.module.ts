@@ -10,9 +10,10 @@ import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { HttpExceptionFilter } from './exception-filters/http-exception.filter';
 import { RolesGuard } from './guards/roles.guard';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
+import { ConfigModule } from './config/config.module';
 
 @Module({
-  imports: [CatsModule, TestModule],
+  // imports: [CatsModule, TestModule, ConfigModule.register({ folder: './config' })],
   controllers: [AppController],
   providers: [AppService,
     // {

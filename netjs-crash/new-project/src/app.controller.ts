@@ -1,11 +1,18 @@
-import { Body, Controller, Get, Header, HttpCode, Param, Post, Redirect, Req, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Header, HttpCode, Param, Post, Redirect, Req, HttpStatus, UseGuards, Request } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Request } from 'express';
 import { CreateCatDto } from './cats/dto/create-cat.dto';
+import { AuthGuard } from '@nestjs/passport';
 
-@Controller('cats')
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @UseGuards(AuthGuard('local')) 
+  @Post('auth/login')
+  async login(@Request() req) {
+    return req.user;
+  }
+  
   // @Post()
   // @HttpCode(201)
   // @Header('Cache-Control', 'none')
