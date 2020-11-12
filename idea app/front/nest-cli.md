@@ -1,0 +1,1 @@
+- nest g mo postgres

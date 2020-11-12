@@ -1,0 +1,5 @@
+- \c ideas-app : use database
+- \dt: show table list
+- drop table idea_entity
+- \d idea : show table description
+- insert into idea(idea, description) values('idea 1', 'des 1');

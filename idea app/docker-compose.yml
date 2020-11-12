@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  ideas-app:
+    container_name: ideas-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+  pgdb:
+    image: postgres:latest
+    # network_mode: bridge
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ideas-app
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      # - ./postgres_data:/var/lib/postgres
+      # - ./dbscripts/postgres:/docker-entrypoint-initdb.d
+  mysql-dev:
+    image: mysql:8.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ideas-app
+    ports:
+      - "6666:3306"
+    volumes:
+      - "./my.conf:/etc/mysql/conf.d/custom.cnf"
+      - "./data:/var/lib/mysql:rw"
+  admin:
+    image: adminer
+    ports:
+      - 6006:8080

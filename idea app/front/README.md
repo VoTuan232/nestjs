@@ -1,0 +1,3 @@
+- npm i dotenv
+- npm i pg typeorm pg @nestjs/typeorm
+- touch ormconfig.json
