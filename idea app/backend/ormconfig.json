@@ -5,7 +5,7 @@
     "password":"password",
     "database":"ideas-app",
     "synchronize":true,
-    "logging":true,
+    "//_logging": true,
     "host":"pgdb",
     "entities": ["dist/**/*.entity{.ts,.js}"]
 }

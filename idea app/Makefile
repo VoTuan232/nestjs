@@ -1,8 +1,11 @@
 create-backend:
 	docker-compose exec ideas-app sh -c 'nest new backend'
 
-create-frontend:
-	docker-compose exec ideas-app sh -c 'npx create-react-app frontend'
+create-frontend-order:
+	docker-compose exec ideas-app sh -c 'npm install -g @angular/cli && ng new frontend-order'
+
+create-frontend-payment:
+	docker-compose exec ideas-app sh -c 'sudo npx create-react-app frontend-payment'
 
 backend-run:
 	docker-compose exec ideas-app sh -c 'cd backend && npm run start:dev'
