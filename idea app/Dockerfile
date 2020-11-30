@@ -5,5 +5,6 @@ FROM node:13.12.0-alpine
 WORKDIR /app
 
 RUN npm install -g @nestjs/cli
+RUN npm install -g @angular/cli
 
 USER node

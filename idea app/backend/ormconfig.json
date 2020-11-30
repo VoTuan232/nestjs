@@ -1,0 +1,11 @@
+{
+    "type":"postgres",
+    "port":5432,
+    "username":"root",
+    "password":"password",
+    "database":"ideas-app",
+    "synchronize":true,
+    "logging":true,
+    "host":"pgdb",
+    "entities": ["dist/**/*.entity{.ts,.js}"]
+}

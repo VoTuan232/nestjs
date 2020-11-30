@@ -1,0 +1,2 @@
+- Data object transfer
+- DTO: shoud use classes

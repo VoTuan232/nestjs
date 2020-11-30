@@ -11,7 +11,8 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "3000:3000"
+      - "3001:3000"
+      - "4201:4200"
   pgdb:
     image: postgres:latest
     # network_mode: bridge

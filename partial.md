@@ -1,0 +1,1 @@
+Make all properties in T optional
