@@ -3,12 +3,13 @@ import { CustomValidationPipe } from '../shared/validator.pipe';
 import { IdeaDTO } from './idea.dto';
 import { IdeaService } from './idea.service';
 
-@Controller('idea')
+@Controller('api/idea')
 export class IdeaController {
     private logger = new Logger('IdeaController');
 
     constructor(private readonly ideaService: IdeaService) {}
 
+    // @Get('all')
     @Get()
     showAllIdea() {
         return this.ideaService.showAll();
