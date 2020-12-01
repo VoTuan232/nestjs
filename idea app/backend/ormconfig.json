@@ -5,7 +5,7 @@
     "password":"password",
     "database":"ideas-app",
     "synchronize":true,
-    "dropSchema": true,
+    "//_dropSchema": true,
     "//_logging": true,
     "host":"pgdb",
     "entities": ["dist/**/*.entity{.ts,.js}"]
