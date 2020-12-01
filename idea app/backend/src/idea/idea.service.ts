@@ -47,7 +47,7 @@ export class IdeaService {
     }
 
     async showAll(): Promise<IDeaRO[]> {
-        const ideas = await this.ideaRepository.find({relations: ['author', 'upvotes', 'downvotes']});
+        const ideas = await this.ideaRepository.find({relations: ['author', 'upvotes', 'downvotes', 'comments']});
         return ideas.map(idea => this.toResponseObject(idea));
     }
 
