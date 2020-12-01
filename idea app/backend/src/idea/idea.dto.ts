@@ -1,5 +1,5 @@
 import { IsString } from 'class-validator';
-import { UserRO } from 'src/user/user.dto';
+import { UserDTO, UserRO } from 'src/user/user.dto';
 export class IdeaDTO {
     @IsString()
     idea: string;
@@ -15,4 +15,6 @@ export class IDeaRO {
     idea: string;
     description: string;
     author?: UserRO;
+    upvotes?: number;
+    downvotes?: number;
 }

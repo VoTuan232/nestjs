@@ -6,9 +6,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { UserRO } from './user.dto';
 
 @Entity('user')
 export class UserEntity {
@@ -27,15 +30,19 @@ export class UserEntity {
   @Column('text')
   password: string;
 
-  @OneToMany(type => IdeaEntity, idea => idea.author)
-  ideas: IdeaEntity[]
+  @OneToMany(type => IdeaEntity, ideas => ideas.author)
+  ideas: IdeaEntity[];
+
+  @ManyToMany(type => IdeaEntity, {cascade: true})
+  @JoinTable()
+  bookmarks: IdeaEntity[];
 
   @BeforeInsert()
   async hasPassword() {
     this.password = await bcrypt.hash(this.password, 10);
   }
 
-  toResponseObject(showToken: boolean = true) {
+  toResponseObject(showToken: boolean = true): UserRO {
     const { id, created, username, token } = this;
     const responseObject: any = { id, created, username };
     if (showToken) {
@@ -43,6 +50,9 @@ export class UserEntity {
     }
     if (this.ideas) {
       responseObject.ideas = this.ideas
+    }
+    if (this.bookmarks) {
+      responseObject.bookmarks = this.bookmarks
     }
     return responseObject;
   }
