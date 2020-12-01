@@ -20,3 +20,11 @@
 ### User Modules
 - npm i bcryptjs jsonwebtoken
 - npm i @types/jsonwebtoken @types/bcryptjs --save-dev
+
+### Fake data
+App Idea Generator - https://appideagenerator.com/
+FakerJS - https://github.com/marak/Faker.js/
+- mkdir data-loader
+- npm init -y
+- touch index.js
+- npm i faker axios

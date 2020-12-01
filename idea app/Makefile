@@ -22,5 +22,8 @@ pg-access:
 pg-run:
 	docker-compose exec pgdb bash -c 'psql ideas-app'
 
+run-fake-data:
+	docker-compose exec ideas-app sh -c 'cd data-loader && npm i && node index.js'
+
 chown:
 	sudo chown -R $(USER):$(USER) .
