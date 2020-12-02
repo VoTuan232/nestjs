@@ -1,4 +1,19 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "assets": [
+       {
+         "include": "**/*.graphql",
+         "exclude": "**/*.test.graphql",
+         "watchAssets": true
+       },
+       {
+         "include": "**/*.html",
+         "watchAssets": false
+       }
+     ],
+     "webpack": false
+   },
+   "autoSchemaFile": "**/*.graphql"
 }
