@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { IdeaEntity } from './idea/idea.entity';
@@ -13,7 +14,13 @@ import { CommentModule } from './comment/comment.module';
 
 @Module({
   // imports: [PostgresModule, IdeaModule],
-  imports: [TypeOrmModule.forRoot(), IdeaModule, UserModule, CommentModule],
+  imports: [TypeOrmModule.forRoot(),
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+      // debug: false,
+      // playground: false,
+    }),
+    IdeaModule, UserModule, CommentModule],
   controllers: [AppController],
   providers: [
     AppService,

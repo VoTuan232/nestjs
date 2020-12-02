@@ -28,3 +28,7 @@ FakerJS - https://github.com/marak/Faker.js/
 - npm init -y
 - touch index.js
 - npm i faker axios
+
+### Intergrate GrapQL
+- npm i @nestjs/graphql graphql apollo-server-express graphql-tools
+- npm i @nestjs/common @nestjs/core (Update)
