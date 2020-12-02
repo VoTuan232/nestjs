@@ -1,19 +1,26 @@
-import { Injectable, CanActivate, ExecutionContext, HttpException, HttpService, HttpStatus } from '@nestjs/common';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpService,
+  HttpStatus,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
 import * as jwt from 'jsonwebtoken';
+import { GqlExecutionContext } from '@nestjs/graphql';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  async canActivate(
-    context: ExecutionContext,
-  ): Promise<boolean> {
+  async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
-    if (!request.headers.authorization) {
+    if (request) {
+      if (!request.headers.authorization) {
         return false;
-    }
-    
-    request.user = await this.validateToken(request.headers.authorization);
-    /*
+      }
+
+      request.user = await this.validateToken(request.headers.authorization);
+      /*
         // request.user
         {
             id: '03d650c1-88a2-492c-bcdd-403d0ea4a882',
@@ -22,21 +29,30 @@ export class AuthGuard implements CanActivate {
             exp: 1607396296
         }
     */
-    return true;
-    // return this.validateRequest(request);
+      return true;
+      // return this.validateRequest(request);
+    } else {
+      const ctx: any = GqlExecutionContext.create(context).getContext();
+      if (!ctx.headers.authorization) {
+        return false;
+      }
+      ctx.user = await this.validateToken(ctx.headers.authorization);
+      return true;
+    }
   }
 
   async validateToken(auth: string) {
-    if (auth.split(' ')[0] !== 'Bearer') { // bearer token
-        throw new HttpException('Invalid Token', HttpStatus.FORBIDDEN);
+    if (auth.split(' ')[0] !== 'Bearer') {
+      // bearer token
+      throw new HttpException('Invalid Token', HttpStatus.FORBIDDEN);
     }
     const token = auth.split(' ')[1];
     try {
-        const decoded = jwt.verify(token, process.env.SECRET);
-        return decoded;
-    } catch(err) {
-        const message = 'Token error: ' + (err.message || err.name);
-        throw new HttpException(message, HttpStatus.FORBIDDEN);
+      const decoded = jwt.verify(token, process.env.SECRET);
+      return decoded;
+    } catch (err) {
+      const message = 'Token error: ' + (err.message || err.name);
+      throw new HttpException(message, HttpStatus.FORBIDDEN);
     }
   }
 }

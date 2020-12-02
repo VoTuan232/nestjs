@@ -25,6 +25,7 @@ export class UserService {
     
     async register(data: UserDTO): Promise<UserRO> {
         const {username} = data;
+        console.log('[data]', data)
         let user = await this.userRepository.findOne({where: {username}});
         if (user) {
             throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
@@ -33,5 +34,11 @@ export class UserService {
         await this.userRepository.save(user);
 
         return user.toResponseObject();
+    }
+
+    async read(username: string) {
+        const user = await this.userRepository.findOne({where: {username}, relations: ['ideas', 'bookmarks']});
+
+        return user.toResponseObject(false);
     }
 }
