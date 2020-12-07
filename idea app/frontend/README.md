@@ -11,3 +11,5 @@ https://www.primefaces.org/primeng/
 
 ### Ngrx
 - npm i @ngrx/store @ngrx/store-devtools
+- npm i @ngrx/effects
+- 
