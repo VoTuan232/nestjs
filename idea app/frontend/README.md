@@ -16,3 +16,8 @@ https://www.primefaces.org/primeng/
 
 ### React Form
 - npm i font-awesome
+- "node_modules/font-awesome/css/font-awesome.min.css",
+
+### Toast
+- import { ToastModule } from 'primeng/toast';
+- import { MessageService } from 'primeng/api';

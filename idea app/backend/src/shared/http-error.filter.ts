@@ -20,7 +20,7 @@ export class HttpErrorFilter implements ExceptionFilter {
       timestamp: new Date().toLocaleDateString(),
       path: request?.url ?? '',
       method: request?.method ?? '',
-      messasge: (status !== HttpStatus.INTERNAL_SERVER_ERROR) ? (
+      message: (status !== HttpStatus.INTERNAL_SERVER_ERROR) ? (
         (exception as any).message ||
         (exception as any).response ||
         null) : 'Internal server error'

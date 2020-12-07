@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UIModule } from '@app/ui.module';
 import { AppStoreModule } from '@app/store/app-store.module';
@@ -20,6 +21,7 @@ import { AuthComponent } from './components/auth/auth.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     AppStoreModule,
