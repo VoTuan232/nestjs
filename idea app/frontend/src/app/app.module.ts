@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { environment } from '@env/environment';
+import { AuthService } from '@app/services/auth.service';
+import { ApiService } from '@app/services/api.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { environment } from '@env/environment';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
   ],
-  providers: [],
+  providers: [AuthService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

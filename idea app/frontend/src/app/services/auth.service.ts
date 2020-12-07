@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   get token(): string {
-    return localStorage.getItem('idea_token');
+    return localStorage.getItem('idea_token') || '';
   }
 
   set token(val: string) {
