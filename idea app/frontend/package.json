@@ -23,6 +23,7 @@
     "@ngrx/effects": "^10.1.0",
     "@ngrx/store": "^10.1.0",
     "@ngrx/store-devtools": "^10.1.0",
+    "font-awesome": "^4.7.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.0.0-rc.2",
     "rxjs": "~6.6.0",

@@ -29,11 +29,11 @@ export class AuthService {
     });
   }
 
-  get token(): string {
+  get token(): string | null {
     return localStorage.getItem('idea_token') || '';
   }
 
-  set token(val: string) {
+  set token(val: string | null) {
     if (val) {
       localStorage.setItem('idea_token', val);
     } else {
