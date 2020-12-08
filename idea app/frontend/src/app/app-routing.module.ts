@@ -4,6 +4,14 @@ import { AuthComponent } from '@app/components/auth/auth.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthComponent },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./features/user/user.module').then(
+        (m) => m.UserModule
+      ),
+  },
+  { path: '**', redirectTo: 'ideas' }
 ];
 
 @NgModule({

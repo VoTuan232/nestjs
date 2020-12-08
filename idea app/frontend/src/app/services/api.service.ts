@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@env/environment';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Idea, IdeaDTO } from '@app/models/idea';
-import { User } from '@app/models/user';
+
+import { environment } from '@env/environment';
 import { AuthService } from '@app/services/auth.service';
-@Injectable({
-  providedIn: 'root'
-})
+import { User } from '@app/models/user';
+import { Idea, IdeaDTO } from '@app/models/idea';
+import { CommentDTO } from '../models/comment';
+
+@Injectable()
 export class ApiService {
-  private api: string = environment.api_server + '/auth';
-  
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  private api: string = environment.api_server + '/api';
+
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   private request(
     method: string,
@@ -94,7 +95,7 @@ export class ApiService {
     return this.request('GET', `comments/${id}`);
   }
 
-  createComment(idea: string, data: any): Observable<Comment> {
+  createComment(idea: string, data: CommentDTO): Observable<Comment> {
     return this.request('POST', `comments/idea/${idea}`, data);
   }
 

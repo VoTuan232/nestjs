@@ -29,4 +29,4 @@ export class SetCurrentUser implements Action {
   constructor(public payload: User | null) {}
 }
 
-export type Action = LoginUser | RegisterUser | SetCurrentUser | SetInitialUser;
+export type AuthActionType = LoginUser | RegisterUser | SetCurrentUser | SetInitialUser;
