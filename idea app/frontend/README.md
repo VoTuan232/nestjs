@@ -21,3 +21,7 @@ https://www.primefaces.org/primeng/
 ### Toast
 - import { ToastModule } from 'primeng/toast';
 - import { MessageService } from 'primeng/api';
+
+### ngrx-router-store
+- npm i @ngrx/router-store
+- ng g c components/navbar -m app
