@@ -11,8 +11,10 @@ import { MenubarModule } from 'primeng/menubar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 
+import { IdeaComponent } from '@app/components/idea/idea.component';
+import { IdeaEditableComponent } from './components/idea-editable/idea-editable.component';
 @NgModule({
-  declarations: [],
+  declarations: [IdeaComponent, IdeaEditableComponent],
   imports: [
     CommonModule,
     ButtonModule,
@@ -22,7 +24,7 @@ import { ToastModule } from 'primeng/toast';
     MenubarModule,
     ProgressSpinnerModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
   ],
   exports: [
     ButtonModule,
@@ -31,7 +33,9 @@ import { ToastModule } from 'primeng/toast';
     InputTextareaModule,
     MenubarModule,
     ProgressSpinnerModule,
-    ToastModule
+    ToastModule,
+    IdeaComponent,
+    IdeaEditableComponent
   ],
   providers: [MessageService]
 })

@@ -12,6 +12,7 @@ import { ApiService } from '@app/services/api.service';
 import { AppComponent } from '@app/app.component';
 import { AuthComponent } from '@app/components/auth/auth.component';
 import { NavbarComponent } from '@app/components/navbar/navbar.component';
+import { UUIDGuard } from '@app/services/uuid.guard';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent, NavbarComponent],
@@ -24,7 +25,7 @@ import { NavbarComponent } from '@app/components/navbar/navbar.component';
     UIModule,
     AppStoreModule,
   ],
-  providers: [AuthService, ApiService],
+  providers: [AuthService, ApiService, UUIDGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

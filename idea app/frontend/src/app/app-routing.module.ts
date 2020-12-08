@@ -11,6 +11,11 @@ const routes: Routes = [
         (m) => m.UserModule
       ),
   },
+  { 
+    path: 'ideas',  loadChildren: () =>
+    import('./features/idea/idea.module').then(
+    (m) => m.IdeaModule)
+  },
   { path: '**', redirectTo: 'ideas' }
 ];
 

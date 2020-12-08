@@ -16,7 +16,7 @@ export const reducers: ActionReducerMap<AppState> = {
 };
 
 export interface AppState {
-  auth: AuthState | undefined | any;
-  error: ErrorState | undefined | any;
+  auth: AuthState;
+  error: ErrorState;
   router: fromRouter.RouterReducerState<RouterStateUrl>;
 }
