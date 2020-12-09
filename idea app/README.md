@@ -32,3 +32,7 @@ FakerJS - https://github.com/marak/Faker.js/
 ### Intergrate GrapQL
 - npm i @nestjs/graphql graphql apollo-server-express graphql-tools
 - npm i @nestjs/common @nestjs/core (Update)
+
+### Websocket
+- npm i --save @nestjs/websockets @nestjs/platform-socket.io
+- npm i --save-dev @types/socket.io

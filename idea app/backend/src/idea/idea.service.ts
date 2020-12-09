@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AppGateway } from 'src/app.gateway';
 import { Votes } from 'src/shared/vote.enum';
 import { UserEntity } from 'src/user/user.entity';
 import { Repository } from 'typeorm';
@@ -13,6 +14,7 @@ export class IdeaService {
     private ideaRepository: Repository<IdeaEntity>,
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>,
+    private gateway: AppGateway,
   ) {}
 
   private toResponseObject(idea: IdeaEntity): IDeaRO {
@@ -68,6 +70,7 @@ export class IdeaService {
     const user = await this.userRepository.findOne({ where: { id: userId } });
     const idea = await this.ideaRepository.create({ ...data, author: user });
     await this.ideaRepository.save(idea);
+    this.gateway.wss.emit('newIdea', idea);
     return this.toResponseObject(idea);
   }
 

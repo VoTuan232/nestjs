@@ -6,7 +6,7 @@ import { CustomValidationPipe } from '../shared/validator.pipe';
 import { IdeaDTO } from './idea.dto';
 import { IdeaService } from './idea.service';
 
-@Controller('api/idea')
+@Controller('api/ideas')
 export class IdeaController {
     private logger = new Logger('IdeaController');
 

@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppGateway } from 'src/app.gateway';
 import { CommentEntity } from 'src/comment/comment.entity';
 import { CommentService } from 'src/comment/comment.service';
 import { UserEntity } from 'src/user/user.entity';
@@ -12,6 +13,6 @@ import { IdeaService } from './idea.service';
 @Module({
   imports: [TypeOrmModule.forFeature([IdeaEntity, UserEntity, CommentEntity])],
   controllers: [IdeaController],
-  providers: [IdeaService, IdeaResolver, CommentService]
+  providers: [IdeaService, IdeaResolver, CommentService, AppGateway]
 })
 export class IdeaModule {}
