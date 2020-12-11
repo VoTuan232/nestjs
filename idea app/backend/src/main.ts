@@ -4,23 +4,16 @@ import { Logger } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
+import { IdeaModule } from './idea/idea.module';
+import { UserModule } from './user/user.module';
+import { CommentModule } from './comment/comment.module';
+import { ConfigSwagger } from './config/swagger';
 
 const port = process.env.PORT || 8080;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  /**
-   * Swagger
-   */
-  const options = new DocumentBuilder()
-  .setTitle('Idea Document')
-  .setDescription('The ideas app API description')
-  .setVersion('1.0')
-  .addTag('ideas')
-  .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  ConfigSwagger(app);
 
   app.enableCors({
     origin: [

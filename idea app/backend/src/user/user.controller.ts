@@ -12,7 +12,9 @@ import { CustomValidationPipe } from 'src/shared/validator.pipe';
 import { UserDTO } from './user.dto';
 import { UserService } from './user.service';
 import { User } from './user.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller()
 export class UserController {
   constructor(private userService: UserService) {}

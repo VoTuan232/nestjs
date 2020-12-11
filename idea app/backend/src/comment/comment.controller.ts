@@ -1,10 +1,13 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
 import { AuthGuard } from 'src/shared/auth.guard';
 import { CustomValidationPipe } from 'src/shared/validator.pipe';
 import { User } from 'src/user/user.decorator';
 import { CommentDTO } from './comment.dto';
 import { CommentService } from './comment.service';
 
+@ApiTags('comments')
 @Controller('api/comment')
 export class CommentController {
     constructor(private commentService: CommentService) {
