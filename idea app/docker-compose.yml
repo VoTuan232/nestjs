@@ -11,9 +11,9 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "3001:3000"
-      - "4201:4200"
-      - "4001:4000" // websocket
+      - "3001:3000" #backend
+      - "4201:4200" #frontend
+      - "4001:4000" #websocket
   pgdb:
     image: postgres:latest
     # network_mode: bridge

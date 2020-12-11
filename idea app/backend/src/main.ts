@@ -1,12 +1,27 @@
 import 'dotenv/config'
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { Logger } from '@nestjs/common';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+import { AppModule } from './app.module';
 
 const port = process.env.PORT || 8080;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  /**
+   * Swagger
+   */
+  const options = new DocumentBuilder()
+  .setTitle('Idea Document')
+  .setDescription('The ideas app API description')
+  .setVersion('1.0')
+  .addTag('ideas')
+  .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+
   app.enableCors({
     origin: [
       'http://localhost:4201', // angular

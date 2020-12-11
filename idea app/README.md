@@ -36,3 +36,7 @@ FakerJS - https://github.com/marak/Faker.js/
 ### Websocket
 - npm i --save @nestjs/websockets @nestjs/platform-socket.io
 - npm i --save-dev @types/socket.io
+
+### Swagger
+- npm install --save @nestjs/swagger swagger-ui-express
+- http://localhost:3001/api/
